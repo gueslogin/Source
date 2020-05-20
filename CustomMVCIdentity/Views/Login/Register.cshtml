@@ -1,0 +1,93 @@
+﻿@model CustomMVCIdentity.Models.RegisterViewModel
+
+<div id="mode" class="content">
+    <div style="max-width:55%;text-align:center;margin-left:25%;word-wrap: break-word;">
+        <p style="font-size:36px; font-weight:bold; color:#0f283c">
+            FORBRUKSKALKULATOREN
+            FOR LOKAL TURISME
+        </p>
+    </div>
+    <div style="text-align:center;">
+        <p style="font-size:20px;color:#0f283c; ">
+            Velkommen til forbrukskalkulatoren for lokal turisme. Kalkulatoren er utarbeidet av Epinion i samarbeid med Innovasjon Norge. Forbrukskalkulatoren kan benyttes til å estimere den lokale turismens forbruk.
+        </p>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div style="text-align:left;">
+        <div style="float:left;padding-right: 10%;padding-left: 5%;">
+            <div class="row">
+                <div class="col-md-12" style="width:200%;">
+                    <div style="margin-left: 10%;">
+                        <img src="~/Content/Guide.png" alt="Pineapple" height="250" width="300">
+                    </div>
+                    <p style="font-weight:bold;font-size:30px;">Register</p>
+                    <section id="loginForm">
+                        @using (Html.BeginForm("Register", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.UserName, "Brugernavn", new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.UserName, new { autocomplete = "new-username", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Email, new { autocomplete = "new-email", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password, "Adgangskode", new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.Password, new { autocomplete = "new-password", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ConfirmPassword, "Bekræft kodeord", new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { autocomplete = "new-password", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ImagePath, "Upload Fil", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <input style="height: 30px;" type="file" name="ImageFile" required />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-default" value="Tilmeld" />
+                                </div>
+                            </div>
+                        }
+
+                    </section>
+                </div>
+            </div>
+            <div style="overflow:hidden;"></div>
+        </div>
+
+        <div style="overflow: hidden;">
+            <p style="font-size:24px;color:#0f283c;font-weight:bold; ">
+                Veiledning til bruk
+            </p>
+            <p style="font-size:16px;color:#0f283c; ">
+                Dere kan velge mellom en av tre modeller; Basis, Utvidet og Avansert. Valg av modell avgjør hvor detaljerte opplysninger dere har behov for. Jo mindre informasjon dere opplyser om, desto mer vil forbruket minne om regionens gjennomsnittlige forbruk. Dere kan selv se hvilken informasjon dere skal opplyse om ved å velge mellom de tre modellene i nedtrekksmenyen til høyre.
+            </p>
+            <p style="font-size:16px;color:#0f283c; ">
+                Verktøyet kan benyttes til å gi et kvalifisert estimat på forbruket til turistene i området. Dere kan også bruke det til å utforske forskjellige sammenhenger i forbruket mellom ulike typer av turisme ved å klikke litt frem og tilbake i modellen.
+            </p>
+            <p style="font-size:16px;color:#0f283c; ">
+                Ved tolking av forbruksestimatene er det viktig å huske på at det nettopp er estimater. Estimatene baseres på de regionale fordelingene fra Turistundersøkelsen og de opplysninger dere oppgir. Ettersom det her er snakk om statistiske beregninger skal det alltid tas forbehold for en viss usikkerhet forbundet med estimatene.
+            </p>
+
+        </div>
+    </div>
+    <br />
+    <br />
+</div>

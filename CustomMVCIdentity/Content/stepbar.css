@@ -1,0 +1,69 @@
+﻿/*.container {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}*/
+
+.progressbar {
+    margin: 0;
+    padding: 0;
+    counter-reset: step;
+    color: #0f283c;
+    /*font-family: Apercu,Arial,sans-serif;*/
+}
+
+    .progressbar li {
+        list-style-type: none;
+        float: left;
+        width: 20%;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+        .progressbar li::before {
+            content: counter(step);
+            counter-increment: step;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #DAE1F4;
+            display: block;
+            margin: 0 auto 10px auto;
+            border-radius: 50%;
+            line-height: 27px;
+            background: white;
+            color: #DAE1F4;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .progressbar li::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #DAE1F4;
+            top: 15px;
+            left: -50%;
+            z-index: -1;
+        }
+
+        .progressbar li:first-child::before {
+            border-color: #233CA0;
+            background: #233CA0;
+            color: white;
+        }
+
+        .progressbar li:first-child::after {
+            content: none;
+        }
+
+        .progressbar li.active + li::after {
+            background: #233CA0;
+        }
+
+        .progressbar li.active + li::before {
+            border-color: #233CA0;
+            background: #233CA0;
+            color: #ffffff;
+        }

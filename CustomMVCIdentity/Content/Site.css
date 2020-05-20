@@ -1,0 +1,186 @@
+﻿html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #e14646;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#li_epinion {
+    font-weight: bold;
+    font-size: 36px;
+    /*margin-left: 33%*/
+}
+
+@media all {
+    .breakhere {
+        display: none;
+    }
+}
+
+@media print {
+    .breakhere {
+        display: block;
+        page-break-before: always;
+    }
+}
+
+#Link {
+    color: #e14646;
+    font-weight: bold;
+}
+
+#iconNormal {
+    height: 40px;
+    padding-right: 30px;
+}
+
+#iconAqua {
+    height: 120px;
+    margin-top:-35px;
+}
+
+#iconMuseet {
+    height: 50px;
+    /*margin-top: -10px;*/
+}
+
+#nav_right {
+    margin-top: 10px;
+    margin-right: 4%;
+}
+
+#dropdown-toggle {
+    background-color: #ffffff;
+    color: #e14646;
+}
+
+#dropdown_img {
+    height: 40px;
+    width: 40px;
+    border-radius: 30px;
+}
+
+#dropdown-menu {
+    min-width: 100px;
+    color: #e14646;
+    border-color: #e14646;
+}
+
+#dropdown_menu_link {
+    text-decoration: none;
+    color: #e14646;
+}
+
+#li_link {
+    margin-top: 5px;
+}
+
+#layout_body {
+    margin-top: 1%;
+}
+
+#login01 {
+    max-width: 55%;
+    text-align: center;
+    margin-left: 25%;
+    word-wrap: break-word;
+}
+
+    #login01 p {
+        font-size: 36px;
+        font-weight: bold;
+        color: #0f283c
+    }
+
+#login02 {
+    text-align: center;
+}
+
+    #login02 p {
+        font-size: 20px;
+        color: #0f283c;
+    }
+
+#login03 {
+    
+}
+
+#login04 {
+    
+}
+
+#login05 {
+    
+}
+
+#login06 {
+    margin-left: 10%;
+    text-align:center;
+}
+
+#loginForm {
+    /*margin-left: -5%;*/
+}
+
+#login07 {
+    
+}
+
+#login08 {
+    
+}
+
+#login09 {
+    
+}
+
+#login10 {
+    
+}
+
+#login11 {
+    font-size: 24px;
+    color: #0f283c;
+    font-weight: bold;
+}
+
+#login12 {
+    font-size: 16px;
+    color: #0f283c;
+}
+
+#ABS_Total_Error{
+    margin-top:2%;
+    visibility:hidden;
+}
+
+
+
+
+
+

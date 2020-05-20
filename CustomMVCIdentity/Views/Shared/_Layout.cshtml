@@ -1,0 +1,117 @@
+﻿@{String version = DateTime.Now.ToString("yyyyMMddHHmmss");}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <title>Attraction Contribution to Society (ABS) Model V2</title>
+
+    <link href="~/Content/Site.css?v=@version" rel="stylesheet" type="text/css">
+    <link href="~/Content/bootstrap.min.css?v=@version" rel="stylesheet" type="text/css">
+    <script src="@Url.Content("~/Scripts/modernizr-2.6.2.js?v="+@version)" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js?v="+@version)" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js?v="+@version)" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ABS/main.js?v="+@version)" type="text/javascript"></script>
+
+    <style>
+        @@font-face {
+            font-family: 'Apercu';
+            src: url('../../fonts/apercu-regular-pro.ttf') format("truetype"); /* Make sure your file location is right */
+        }
+
+        .field-validation-error {
+            
+        }
+
+    </style>
+</head>
+<body style="font-family: Apercu,Arial,sans-serif;">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li id="li_epinion">
+                        <a href="https://epinionglobal.com/en/expertise/public-politics/tourism-culture-experiences/"><img src="~/Content/Epinion_Red_RGB.png" id="iconNormal" /></a>
+                        <a href="https://www.topattraktioner.dk/"><img src="~/Content/topAtt.svg" id="iconNormal" /></a>
+                    </li>
+                </ul>
+                <ul id="nav_right" class="nav navbar-nav navbar-right">
+                    @if (IdentityManagement.Utilities.Utils.IfUserInRole("Member"))
+                    {
+
+                        <li>@Html.ActionLink("Member", "Index", "Member")</li>
+                    }
+                    else if (IdentityManagement.Utilities.Utils.IfUserInRole("Administrator") && @ViewBag.ImageContent1 != null)
+                    {
+                        <li class="dropdown">
+                            <a id="dropdown-toggle" class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                <span>
+                                    <img id="dropdown_img" src="@ViewBag.ImageContent1" />
+                                </span>
+                                @User.Identity.Name
+                                <b class="caret"></b>
+                            </a>
+                            <ul id="dropdown-menu" class="dropdown-menu">
+                                <li style="text-align: left;">
+                                    <a id="dropdown_menu_link" href="/Admin/Index/">
+                                        <span>
+                                            <img src="~/Content/home-2-16.png" />
+                                        </span>
+                                        Forside
+                                    </a>
+                                </li>
+                                <li style="text-align: left;">
+                                    <a id="dropdown_menu_link" href="/Login/ChangePassword/">
+                                        <span>
+                                            <img src="~/Content/changepassword-16.png" />
+                                        </span>
+                                        Skift adgangskode
+                                    </a>
+                                </li>
+                                <li style="text-align: left;">
+                                    <a id="dropdown_menu_link" href="/Login/Logout/">
+                                        <span>
+                                            <img src="~/Content/logout-16.png" />
+                                        </span>
+                                        Log ud
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+
+                    @if (IdentityManagement.Utilities.Utils.IfUserAuthenticated())
+                    {
+                        @*<li style="left:300%;">@Html.ActionLink("Logout", "Logout", "Login")</li>*@
+                    }
+                    else
+                    {
+                        @*<li id="li_link">@Html.ActionLink("Log på", "Index", "Login", routeValues: null, htmlAttributes: new { id = "Link" })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                        <li id="li_link">@Html.ActionLink("Tilmeld", "Register", "Login", routeValues: null, htmlAttributes: new { id = "Link" })</li>*@
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content" id="layout_body" data-gr-c-s-loaded="true">
+        @RenderBody()
+        @*<hr />*@
+        <footer>
+            @*<p>&copy; @DateTime.Now.Year </p>*@
+        </footer>
+    </div>
+</body>
+</html>

@@ -26,6 +26,7 @@ namespace CustomMVCIdentity
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Login")
+                //LoginPath = new PathString("/Login")
             });
         }
     }
